@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rectifier Lab</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><h1>Rectifier Lab<p>Archisman Dandapat - 24EE10002</p></h1><p>Diode &amp; Thyristor Rectifiers · 1-phase / 3-phase · Ideal devices, R / R-L load</p></header>
+<main>
+<aside class="card">
+  <h2>Circuit</h2>
+  <div class="seg" data-key="dev"><button data-v="diode" class="on">Diode</button><button data-v="scr">Thyristor</button></div>
+  <div class="seg" data-key="wave"><button data-v="half">Half-wave</button><button data-v="full" class="on">Full-wave</button></div>
+  <div class="seg" data-key="ph"><button data-v="1" class="on">1-phase</button><button data-v="3">3-phase</button></div>
+  <h2>Parameters</h2>
+  <label>Supply voltage, RMS (phase) <span>V</span><input id="V" type="number" value="230" min="1"></label>
+  <label>Frequency <span>Hz</span><input id="f" type="number" value="50" min="1"></label>
+  <label>Load resistance <span>Ω</span><input id="R" type="number" value="10" min="0.01" step="any"></label>
+  <label>Load inductance <span>mH</span><input id="L" type="number" value="0" min="0" step="any"></label>
+  <label>Firing angle α <span id="aOut">0°</span><input id="a" type="range" value="30" min="0" max="179"></label>
+  <p class="note" id="aNote"></p>
+  <p class="note">Full-wave = bridge (1-φ) / 6-pulse bridge (3-φ). Half-wave 3-φ = 3-pulse, star supply with neutral return.</p>
+</aside>
+<section>
+  <div class="card"><h2 id="title"></h2><svg id="sch" viewBox="0 0 560 280"></svg></div>
+  <div class="card"><h2>Waveforms (ωt, two cycles)</h2><canvas id="wf"></canvas></div>
+  <div class="card"><h2>Parameters &amp; results</h2><div id="metrics"></div></div>
+</section>
+</main>
+<script src="app.js"></script>
+</body></html>
